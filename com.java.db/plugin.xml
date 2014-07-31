@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="com.java.db.intro.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="DB"
+            class="com.java.db.intro.Perspective"
+            id="com.java.db.perspective">
+      </perspective>
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="com.java.db.application"
+            name="DB">
+         <property
+               name="windowImages"
+               value="icons/system.gif">
+         </property>
+      </product>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro">
+      <intro
+            class="org.eclipse.ui.intro.config.CustomizableIntroPart"
+            id="com.java.db.intro">
+      </intro>
+      <introProductBinding
+            introId="com.java.db.intro"
+            productId="com.java.db.product">
+      </introProductBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro.config">
+      <config
+            introId="com.java.db.intro"
+            content="introContent.xml"
+            id="com.java.db.configId">
+         <presentation
+               home-page-id="root">
+            <implementation
+                  kind="html"
+                  os="win32,linux,macosx">
+            </implementation>
+         </presentation>
+      </config>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+        <category 
+        id="com.java.db.views"
+        name="DBSQL"/>
+      <view
+      		category = "com.java.db.views"
+            class="com.java.db.views.ConnectManagerView"
+            id="com.java.db.views.ConnectManagerView"
+            name="连接"
+            icon="icons/connectmanger.gif">
+      </view>
+      <view
+      		category = "com.java.db.views"
+            class="com.java.db.views.QueryResultView"
+            id="com.java.db.views.QueryResultView"
+            name="查询结果"
+            icon="icons/queryResult.gif">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="com.java.db.editors.SQLEditor"
+            id="com.java.db.editors.SQLEditor"
+            name="SQLEditor"
+            icon="icons/SQLQuery.png">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="com.java.db.actionSet"
+            label="&amp;新建连接"
+            visible="true">
+         <menu
+               id="File"
+               label="&amp;文件">
+            <separator
+                  name="sampleGroup">
+            </separator>
+         </menu>
+         <action
+               class="com.java.db.actions.NewConnectAction"
+               icon="icons/newConn.gif"
+               id="com.java.db.actions.NewConnectAction"
+               label="新建连接"
+               menubarPath="File/sampleGroup"
+               toolbarPath="sampleGroup"
+               tooltip="新建连接">
+         </action>
+      </actionSet>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+         <objectContribution 
+         id = "com.java.db.views.ConnectManagerView"
+         objectClass="com.java.db.model.ConnectModel">
+          <menu
+         	id = "com.java.db.actions.menu"
+         	label = "menu"
+         	path = "popuMenu">
+         </menu>
+         <action
+         	id = "com.java.db.actions"
+         	icon = "icons/newConn.gif"
+         	label = "新建连接"
+         	menubarPath = "com.java.db.actions.menu"
+         	enablesFor = "1"
+         	class = "com.java.db.actions.NewConnectAction">
+         </action>
+         </objectContribution >
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="com.java.db.preferences.ConnPreferences"
+            id="com.java.db.preferences.ConnPreferences"
+            name="DB连接管理">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="com.java.db.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+</plugin>
