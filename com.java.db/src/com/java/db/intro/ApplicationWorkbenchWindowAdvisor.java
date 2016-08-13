@@ -35,8 +35,13 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor
 		configurer.setShowStatusLine(true);
 		configurer.setTitle("DB");
 		
-		// 加载连接文件
-		ConnUtil.loadConn(DBSystemConstant.CONN_PATH);
+		try {
+		    // 加载连接文件
+		    ConnUtil.loadConn(DBSystemConstant.CONN_PATH);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
 	}
 	
 	@Override

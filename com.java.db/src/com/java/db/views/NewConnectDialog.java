@@ -85,12 +85,12 @@ public class NewConnectDialog extends Dialog
 	private void createContents()
 	{
 		shell = new Shell(getParent(), getStyle());
-		shell.setSize(450, 300);
+		shell.setSize(520, 342);
 		shell.setText(getText());
 		{
 			CTabFolder tabFolder = new CTabFolder(shell, SWT.BORDER);
 			tabFolder.setSimple(false);
-			tabFolder.setBounds(10, 10, 424, 224);
+			tabFolder.setBounds(10, 10, 429, 254);
 			tabFolder.setSelectionBackground(Display.getCurrent().getSystemColor(SWT.COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT));
 			{
 				CTabItem tabItem = new CTabItem(tabFolder, SWT.NONE);
@@ -100,52 +100,52 @@ public class NewConnectDialog extends Dialog
 					tabItem.setControl(group);
 					{
 						Label label = new Label(group, SWT.NONE);
-						label.setBounds(23, 13, 54, 12);
+						label.setBounds(29, 20, 54, 21);
 						label.setText("名称");
 					}
 					{
 						text = new Text(group, SWT.BORDER);
-						text.setBounds(85, 10, 166, 18);
+						text.setBounds(85, 17, 166, 22);
 						text.setText("mysql");
 					}
 					{
 						Label label = new Label(group, SWT.NONE);
-						label.setBounds(23, 37, 54, 12);
+						label.setBounds(29, 61, 54, 21);
 						label.setText("IP");
 					}
 					{
 						text_1 = new Text(group, SWT.BORDER);
-						text_1.setBounds(85, 34, 166, 18);
+						text_1.setBounds(85, 58, 166, 22);
 						text_1.setText("127.0.0.1");
 					}
 					{
 						Label label = new Label(group, SWT.NONE);
-						label.setBounds(23, 60, 54, 12);
+						label.setBounds(29, 102, 54, 22);
 						label.setText("端口");
 					}
 					{
 						text_2 = new Text(group, SWT.BORDER);
-						text_2.setBounds(85, 58, 107, 18);
+						text_2.setBounds(85, 99, 166, 22);
 						text_2.setText("3306");
 					}
 					{
 						Label label = new Label(group, SWT.NONE);
-						label.setBounds(23, 85, 54, 12);
+						label.setBounds(29, 144, 54, 21);
 						label.setText("用户名");
 					}
 					{
 						text_3 = new Text(group, SWT.BORDER);
-						text_3.setBounds(85, 82, 107, 18);
+						text_3.setBounds(85, 140, 166, 22);
 						text_3.setText("root");
 					}
 					{
 						Label label = new Label(group, SWT.NONE);
-						label.setBounds(23, 109, 54, 12);
+						label.setBounds(29, 185, 54, 19);
 						label.setText("密码");
 					}
 					{
 						text_4 = new Text(group, SWT.BORDER | SWT.PASSWORD);
-						text_4.setBounds(85, 106, 107, 18);
+						text_4.setBounds(85, 181, 166, 22);
 						text_4.setText("");
 					}
 				}
@@ -178,7 +178,7 @@ public class NewConnectDialog extends Dialog
 					mb.open();
 				}
 			});
-			button.setBounds(10, 240, 96, 22);
+			button.setBounds(10, 270, 96, 30);
 			button.setText("测试连接");
 		}
 		{
@@ -214,7 +214,7 @@ public class NewConnectDialog extends Dialog
 					shell.close();
 				}
 			});
-			button.setBounds(272, 240, 72, 22);
+			button.setBounds(267, 270, 72, 30);
 			button.setText("确定");
 		}
 		{
@@ -226,7 +226,7 @@ public class NewConnectDialog extends Dialog
 					shell.close();
 				}
 			});
-			button.setBounds(362, 240, 72, 22);
+			button.setBounds(352, 270, 72, 30);
 			button.setText("取消");
 		}
 
